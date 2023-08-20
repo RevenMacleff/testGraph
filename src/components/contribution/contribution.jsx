@@ -49,24 +49,7 @@ const Contribution = () => {
     return <li key={index}>{element}</li>;
   });
   const elementsSquares = arr.map((element, index) => {
-    const isActive = show.includes(index); // проверяем, является ли элемент активным
-    const deleted = isActive ? "show" : "hide";
-    return (
-      <div
-        key={index}
-        className="squareMini zeroBg"
-        onClick={() => {
-          if (isActive) {
-            // если элемент уже выбран, удаляем его из массива
-            changeShow(show.filter((item) => item !== index));
-          } else {
-            // иначе добавляем его в массив
-            changeShow([...show, index]);
-          }
-        }}>
-        <div className={deleted}></div>
-      </div>
-    );
+    return <div key={index} className="squareMini zeroBg"></div>;
   });
   const originalArray = new Array(51).fill(null);
 
