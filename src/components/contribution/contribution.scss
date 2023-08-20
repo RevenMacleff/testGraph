@@ -1,0 +1,79 @@
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  li {
+    width: 34px;
+    margin-right: 20px;
+  }
+}
+.show {
+  display: block;
+  width: 20px;
+  background-color: blue;
+  height: 20px;
+}
+.hide {
+  display: none;
+}
+.monthList {
+  margin-bottom: 0px;
+}
+.squareList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dayNames {
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+
+  justify-content: space-between;
+  span {
+    margin-bottom: 18px;
+  }
+}
+
+.squareMini {
+  width: 15px;
+  height: 15px;
+  margin-right: 2px;
+  margin-top: 2px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+}
+
+.marksList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.squareList {
+  width: 96%;
+}
+
+.zeroBg {
+  background: #ededed;
+}
+
+.class-1-9 {
+  background: #acd5f2;
+}
+
+.class-10-19 {
+  background: #7fa8c9;
+}
+
+.class-20-29 {
+  background: #527ba0;
+}
+
+.class-30 {
+  background: #254e77;
+}
