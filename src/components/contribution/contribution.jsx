@@ -60,6 +60,7 @@ const Contribution = () => {
       </div>
     );
   });
+  const elementsWithHideShow = document.querySelectorAll(".hide_show");
 
   const listElementsSquary = document.querySelectorAll(".squareMini");
   for (let key in responseCont) {
@@ -79,7 +80,6 @@ const Contribution = () => {
       }
       listElementsSquary[indexMount].id = listDaysFrom[daysindex];
     }
-
     const className =
       value === 0
         ? "zeroBg"
