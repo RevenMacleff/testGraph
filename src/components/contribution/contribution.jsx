@@ -96,18 +96,48 @@ const Contribution = () => {
       const element = document.getElementById(key);
       const id = element.getAttribute("id");
       const elementDiv = document.createElement("div");
-
+      console.log(id);
       elementDiv.classList.add("hide");
       document.getElementById(key).onclick = function () {
         elementDiv.classList.toggle("hide_show");
       };
+      let date = new Date(id);
+      let daysOfWeek = [
+        "Воскресенье",
+        "Понедельник",
+        "Вторник",
+        "Среда",
+        "Четверг",
+        "Пятница",
+        "Суббота",
+      ];
+      let months = [
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь",
+      ];
 
+      let dayOfWeek = daysOfWeek[date.getDay()];
+      let month = months[date.getMonth()];
+      let day = date.getDate();
+
+      let result =
+        dayOfWeek + ", " + month + " " + (day < 10 ? "0" + day : day) + ", " + date.getFullYear();
       document.getElementById(key).appendChild(elementDiv);
       const text = `<svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
 <path d="M4.5 6L0.169873 1.38009e-07L8.83013 8.95112e-07L4.5 6Z" fill="black"/>
 </svg>`;
       elementDiv.innerHTML = `<div class="contributions">${value} contributions</div> 
-      <div class="date">${id}   <div class="absolute_elem">${text}</div></div> `;
+      <div class="date">${result}   <div class="absolute_elem">${text}</div></div> `;
 
       document.getElementById(key).classList.add(className);
     }
