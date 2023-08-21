@@ -90,13 +90,13 @@ const Contribution = () => {
         : value >= 20 && value <= 29
         ? "class-20-29"
         : "class-30";
-
+    /*     console.log(document.getElementById(key)); */
     if (document.getElementById(key) != null) {
       document.getElementById(key).classList.add(className);
       const element = document.getElementById(key);
       const id = element.getAttribute("id");
       const elementDiv = document.createElement("div");
-      console.log(id);
+
       elementDiv.classList.add("hide");
       document.getElementById(key).onclick = function () {
         elementDiv.classList.toggle("hide_show");
@@ -140,8 +140,72 @@ const Contribution = () => {
       <div class="date">${result}   <div class="absolute_elem">${text}</div></div> `;
 
       document.getElementById(key).classList.add(className);
+    } else {
+      /*       document.getElementById(); */
     }
   }
+  const zeroBgBlocks = document.querySelectorAll(".squareMini.zeroBg:not([class*='class'])");
+
+  zeroBgBlocks.forEach((block, index) => {
+    const elementDiv2 = document.createElement("div");
+    elementDiv2.classList.add("hide");
+    const id = block.getAttribute("id");
+    let date = new Date(id);
+    let daysOfWeek = [
+      "Воскресенье",
+      "Понедельник",
+      "Вторник",
+      "Среда",
+      "Четверг",
+      "Пятница",
+      "Суббота",
+    ];
+    let months = [
+      "Январь",
+      "Февраль",
+      "Март",
+      "Апрель",
+      "Май",
+      "Июнь",
+      "Июль",
+      "Август",
+      "Сентябрь",
+      "Октябрь",
+      "Ноябрь",
+      "Декабрь",
+    ];
+
+    let dayOfWeek = daysOfWeek[date.getDay()];
+    let month = months[date.getMonth()];
+    let day = date.getDate();
+    let year = date.getFullYear();
+    if (year < 2000) {
+      let result = dayOfWeek + ", " + month + " " + (day < 10 ? "0" + day : day) + ", " + "2022";
+      const text = `<svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+      <path d="M4.5 6L0.169873 1.38009e-07L8.83013 8.95112e-07L4.5 6Z" fill="black"/>
+      </svg>`;
+      elementDiv2.innerHTML = `<div class="contributions">No contributions</div> 
+            <div class="date">${result}   <div class="absolute_elem">${text}</div></div> `;
+      block.appendChild(elementDiv2);
+
+      block.addEventListener("click", () => {
+        elementDiv2.classList.toggle("hide_show");
+      });
+    } else {
+      let result = dayOfWeek + ", " + month + " " + (day < 10 ? "0" + day : day) + ", " + year;
+      const text = `<svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+      <path d="M4.5 6L0.169873 1.38009e-07L8.83013 8.95112e-07L4.5 6Z" fill="black"/>
+      </svg>`;
+      elementDiv2.innerHTML = `<div class="contributions">No contributions</div> 
+            <div class="date">${result}   <div class="absolute_elem">${text}</div></div> `;
+      block.appendChild(elementDiv2);
+
+      block.addEventListener("click", () => {
+        elementDiv2.classList.toggle("hide_show");
+      });
+    }
+  });
+
   return (
     <>
       <ul className="monthList">{monthElements}</ul>
