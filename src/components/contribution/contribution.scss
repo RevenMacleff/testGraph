@@ -50,6 +50,11 @@ ul {
     line-height: normal;
   }
 }
+.absolute_elem {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+}
 .monthList {
   margin-bottom: 0px;
 }
