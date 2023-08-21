@@ -180,7 +180,7 @@ const Contribution = () => {
     let day = date.getDate();
     let year = date.getFullYear();
     if (year < 2000) {
-      let result = dayOfWeek + ", " + month + " " + (day < 10 ? "0" + day : day) + ", " + "2022";
+      let result = "Last year info";
       const text = `<svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
       <path d="M4.5 6L0.169873 1.38009e-07L8.83013 8.95112e-07L4.5 6Z" fill="black"/>
       </svg>`;
