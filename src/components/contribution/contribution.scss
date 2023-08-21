@@ -8,14 +8,47 @@ ul {
     margin-right: 20px;
   }
 }
-.show {
-  display: block;
-  width: 20px;
-  background-color: blue;
-  height: 20px;
+.date {
+  color: #7c7c7c;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.squareMini {
+  position: relative;
+}
+.contributions {
+  color: #fff;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 5px;
+  line-height: normal;
 }
 .hide {
   display: none;
+  &_show {
+    position: absolute;
+    left: -76px;
+    top: -44px;
+    display: block;
+    text-align: center;
+    width: 145px;
+    border-radius: 3px;
+    background: #000;
+    padding: 5px 9px 6px 9px;
+    /*     height: 42px; */
+    z-index: 20;
+    color: white;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }
 .monthList {
   margin-bottom: 0px;

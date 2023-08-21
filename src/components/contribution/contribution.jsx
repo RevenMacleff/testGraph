@@ -6,8 +6,8 @@ const listDaysFrom = getListAllDays();
 const Contribution = () => {
   const [responseCont, changeResponseContri] = useState();
   const [show, changeShow] = useState([]);
-  console.log(show);
-  console.log(responseCont);
+  /*   console.log(show);
+  console.log(responseCont); */
   useEffect(() => {
     fetch("https://dpg.gg/test/calendar.json")
       .then((result) => {
@@ -16,7 +16,56 @@ const Contribution = () => {
       .then((data) => {
         changeResponseContri(data);
       });
+
+    for (let key in responseCont) {
+      const value = responseCont[key];
+      if (firstKey === null) {
+        firstKey = key;
+        firstValue = value;
+        firstMounth = key.slice(-2);
+      }
+      for (
+        let indexMount = firstMounth, daysindex = firstMounth;
+        indexMount < listElementsSquary.length;
+        indexMount++, daysindex++
+      ) {
+        if (daysindex === 28) {
+          daysindex = 0;
+        }
+        listElementsSquary[indexMount].id = listDaysFrom[daysindex];
+      }
+
+      const className =
+        value === 0
+          ? "zeroBg"
+          : value >= 1 && value <= 9
+          ? "class-1-9"
+          : value >= 10 && value <= 19
+          ? "class-10-19"
+          : value >= 20 && value <= 29
+          ? "class-20-29"
+          : "class-30";
+      if (document.getElementById(key) != null) {
+        document.getElementById(key).classList.add(className);
+        const element = document.getElementById(key);
+        const id = element.getAttribute("id");
+        const elementDiv = document.createElement("div");
+
+        elementDiv.classList.add("hide");
+        document.getElementById(key).onclick = function () {
+          elementDiv.classList.toggle("hide_show");
+        };
+
+        document.getElementById(key).appendChild(elementDiv);
+
+        elementDiv.innerHTML = `<div class="contributions">${value} contributions</div> 
+        <div class="date">${id}</div> `;
+
+        document.getElementById(key).classList.add(className);
+      }
+    }
   }, []);
+
   let firstKey = null;
   let firstValue = null;
   let firstMounth = 0;
@@ -62,47 +111,6 @@ const Contribution = () => {
   });
 
   const listElementsSquary = document.querySelectorAll(".squareMini");
-
-  for (let key in responseCont) {
-    const value = responseCont[key];
-    if (firstKey === null) {
-      firstKey = key;
-      firstValue = value;
-      firstMounth = key.slice(-2);
-    }
-    for (
-      let indexMount = firstMounth, daysindex = firstMounth;
-      indexMount < listElementsSquary.length;
-      indexMount++, daysindex++
-    ) {
-      if (daysindex === 28) {
-        daysindex = 0;
-      }
-      listElementsSquary[indexMount].id = listDaysFrom[daysindex];
-    }
-
-    const className =
-      value === 0
-        ? "zeroBg"
-        : value >= 1 && value <= 9
-        ? "class-1-9"
-        : value >= 10 && value <= 19
-        ? "class-10-19"
-        : value >= 20 && value <= 29
-        ? "class-20-29"
-        : "class-30";
-    if (document.getElementById(key) != null) {
-      document.getElementById(key).classList.add(className);
-      const element = document.getElementById(key);
-      /*       const id = element.getAttribute("id");
-      const elementDiv = document.createElement("div");
-      elementDiv.classList.add("show");
-      elementDiv.textContent = id;
-      document.getElementById(key).appendChild(elementDiv);
-      const text = id; */
-      document.getElementById(key).classList.add(className);
-    }
-  }
 
   return (
     <>
