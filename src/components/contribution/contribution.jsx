@@ -39,7 +39,7 @@ const Contribution = () => {
 
   let activeMonth = [];
   var date = new Date();
-
+  console.log(date);
   for (let i = 12; i > 0; i--) {
     const indexMounth = (date.getMonth() - i + 12) % 12;
     activeMonth.push(month[indexMounth]);
@@ -60,7 +60,6 @@ const Contribution = () => {
       </div>
     );
   });
-  const elementsWithHideShow = document.querySelectorAll(".hide_show");
 
   const listElementsSquary = document.querySelectorAll(".squareMini");
   for (let key in responseCont) {
@@ -141,7 +140,6 @@ const Contribution = () => {
 
       document.getElementById(key).classList.add(className);
     } else {
-      /*       document.getElementById(); */
     }
   }
   const zeroBgBlocks = document.querySelectorAll(".squareMini.zeroBg:not([class*='class'])");
