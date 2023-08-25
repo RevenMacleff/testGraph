@@ -10,7 +10,7 @@ const getListAllDays = () => {
     const month = currentDate.getMonth();
     const day = currentDate.getDate();
 
-    const newDate = new Date(year, month, day - i - 17 /*  - i - 6 */);
+    const newDate = new Date(year, month, day - i - 12 /*  - i - 6 */);
     const formattedDate = newDate.toISOString().split("T")[0];
 
     dateList.push(formattedDate);
